@@ -90,7 +90,7 @@ function renderResults(items) {
   });
 
   resultsGrid.appendChild(fragment);
-  setStatus(`Da tim thay ${items.length} anime tuong tu.`);
+  setStatus(`Đã tìm thấy ${items.length} anime tương tự.`);
 }
 
 async function fetchRecommendations() {
