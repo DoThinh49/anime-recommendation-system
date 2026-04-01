@@ -2,90 +2,90 @@
 
 # Anime Recommendation System
 
-Project web nho su dung Flask de goi y anime tuong tu dua tren the loai (genres) trong file dataset `anime-standalone.csv`.
+Project web nhỏ sử dụng Flask để gợi ý anime tương tự dựa trên thể loại (genres) trong file dataset `anime-standalone.csv`.
 
-## 1) Yeu cau moi truong
+## 1) Yêu cầu môi trường
 
-- Python 3.9+ (khuyen nghi Python 3.10 hoac 3.11)
+- Python 3.9+ (khuyến nghị Python 3.10 hoặc 3.11)
 - Pip
 
-## 2) Cai dat
+## 2) Cài đặt
 
-Mo terminal tai thu muc project, sau do chay:
+Mở terminal tại thư mục project, sau đó chạy:
 
 ```powershell
 python -m venv .venv
 ```
 
-Kich hoat virtual environment:
+Kích hoạt virtual environment:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-Cai dependencies:
+Cài dependencies:
 
 ```powershell
 pip install flask pandas scikit-learn
 ```
 
-Neu PowerShell bao loi script execution bi chan, chay tam thoi:
+Nếu PowerShell báo lỗi script execution bị chặn, chạy tạm thời:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
 
-roi kich hoat lai `.venv`.
+rồi kích hoạt lại `.venv`.
 
-## 3) Chay project
+## 3) Chạy project
 
-Chay web app:
+Chạy web app:
 
 ```powershell
 python app.py
 ```
 
-Sau khi chay thanh cong, mo trinh duyet tai:
+Sau khi chạy thành công, mở trình duyệt tại:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-## 4) Cach su dung
+## 4) Cách sử dụng
 
-1. Nhap ten anime vao o tim kiem.
-2. Chon so luong goi y (1 den 50).
-3. Bam **Goi y Anime** de xem ket qua.
+1. Nhập tên anime vào ô tìm kiếm.
+2. Chọn số lượng gợi ý (1 đến 50).
+3. Bấm **Gợi ý Anime** để xem kết quả.
 
-## 5) Cau truc chinh
+## 5) Cấu trúc chính
 
 ```text
 anime recommendation system/
-|- app.py                 # Flask app va API /recommend
-|- anime.py               # Logic tinh do tuong dong va goi y
-|- anime-standalone.csv   # Du lieu anime
-|- templates/index.html   # Giao dien HTML
+|- app.py                 # Flask app và API /recommend
+|- anime.py               # Logic tính độ tương đồng và gợi ý
+|- anime-standalone.csv   # Dữ liệu anime
+|- templates/index.html   # Giao diện HTML
 |- static/style.css       # CSS
-|- static/script.js       # JS goi API va render ket qua
+|- static/script.js       # JS gọi API và render kết quả
 ```
 
-## 6) Loi thuong gap
+## 6) Lỗi thường gặp
 
-- **ModuleNotFoundError** (vd: khong tim thay `flask`, `pandas`, `sklearn`):
-  - Dam bao da kich hoat `.venv`
-  - Cai lai bang dung interpreter:
+- **ModuleNotFoundError** (vd: không tìm thấy `flask`, `pandas`, `sklearn`):
+  - Đảm bảo đã kích hoạt `.venv`
+  - Cài lại bằng đúng interpreter:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install flask pandas scikit-learn
 ```
 
-- **Khong tim thay file CSV**:
-  - Dam bao file `anime-standalone.csv` nam cung cap voi `app.py`.
+- **Không tìm thấy file CSV**:
+  - Đảm bảo file `anime-standalone.csv` nằm cùng cấp với `app.py`.
 
-- **Port 5000 dang bi chiem**:
-  - Tat ung dung dang dung port 5000 hoac doi port trong `app.py`.
+- **Port 5000 đang bị chiếm**:
+  - Tắt ứng dụng đang dùng port 5000 hoặc đổi port trong `app.py`.
 
-## 7) Ghi chu
+## 7) Ghi chú
 
-- `app.py` dang de `debug=True`, phu hop cho local dev.
-- Khi deploy production, nen dung WSGI server (gunicorn/waitress) va tat debug mode.
+- `app.py` đang để `debug=True`, phù hợp cho local dev.
+- Khi deploy production, nên dùng WSGI server (gunicorn/waitress) và tắt debug mode.
